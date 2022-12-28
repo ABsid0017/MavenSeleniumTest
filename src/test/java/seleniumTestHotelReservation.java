@@ -23,6 +23,8 @@ public class seleniumTestHotelReservation {
         //open the url or AUT
         driver.get("http://adactinhotelapp.com/HotelAppBuild2/index.php");
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         //Click on the register link:
         driver.findElement(By.id("username")).sendKeys("SP19BSSE0017");
 
@@ -32,8 +34,6 @@ public class seleniumTestHotelReservation {
 
         String welcomeTag = driver.findElement(By.cssSelector("body:nth-child(2) table.content:nth-child(2) tbody:nth-child(1) tr:nth-child(1) > td.welcome_menu:nth-child(1)")).getText();
         Assert.assertEquals(welcomeTag,"Welcome to Adactin Group of Hotels");
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         driver.quit();
         driver=null;
