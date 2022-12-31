@@ -35,7 +35,29 @@ public class seleniumTestHotelReservation {
     }
 
     @Test
-    public void checkTest() {
+    public void logoutTest() {
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        driver.get("http://adactinhotelapp.com/HotelAppBuild2/index.php");
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.id("username")).sendKeys("SP19BSSE0017");
+
+        driver.findElement(By.id("password")).sendKeys("111");
+
+        driver.findElement(By.id("login")).click();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.linkText("Logout")).click();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.quit();
+
 
     }
 
