@@ -61,5 +61,36 @@ public class seleniumTestHotelReservation {
 
     }
 
+    @Test
+    public void changePassword() {
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        driver.get("http://adactinhotelapp.com/HotelAppBuild2/index.php");
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.id("username")).sendKeys("SP19BSSE0017");
+
+        driver.findElement(By.id("password")).sendKeys("111");
+
+        driver.findElement(By.id("login")).click();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.linkText("Change Password")).click();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        driver.findElement(By.id("current_pass")).sendKeys("111");
+        driver.findElement(By.id("new_password")).sendKeys("12345");
+        driver.findElement(By.id("re_password")).sendKeys("12345");
+
+        driver.quit();
+
+
+    }
+
 
 }
